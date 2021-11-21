@@ -30,7 +30,4 @@ builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
 
 var host = builder.Build();
 
-//host.Services.UseBootstrapProviders()
-//  .UseFontAwesomeIcons();
-
 await host.RunAsync();
