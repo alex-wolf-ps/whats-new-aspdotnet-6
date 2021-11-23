@@ -6,10 +6,10 @@ namespace WiredBrainCoffee.Api.Controllers
     [Route("[controller]")]
     public class HelloWorldController : Controller
     {
-        [HttpGet]
+        [HttpGet()]
         public IActionResult GetGreeting()
         {
-            return Ok("Hello world");
+            return Ok("Hello world!");
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
+﻿using System.Net.Http.Json;
 using WiredBrainCoffee.Models;
 
 namespace WiredBrainCoffee.UI.Services
@@ -30,22 +25,22 @@ namespace WiredBrainCoffee.UI.Services
                 new MenuItem()
                 {
                     Name = "Mocha Latte",
-                    Summary = "Half coffee, half treat - the perfect combo."
+                    ShortDescription = "Half coffee, half treat - the perfect combo."
                 },
                 new MenuItem()
                 {
                     Name = "Raspberry Coffee",
-                    Summary = "A fresh blend with a refreshing taste"
+                    ShortDescription = "A fresh blend with a refreshing taste"
                 },
                 new MenuItem()
                 {
                     Name = "Peppermint Hot Chocolate",
-                    Summary = "So good, you'll be glad it's cold outside."
+                    ShortDescription = "So good, you'll be glad it's cold outside."
                 },
                 new MenuItem()
                 {
                     Name = "Green Tea",
-                    Summary = "It's classic for a reason"
+                    ShortDescription = "It's classic for a reason"
                 }
             };
         }

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using WiredBrainCoffee.Models;
+﻿using WiredBrainCoffee.Models;
 
 namespace WiredBrainCoffee.UI.Services
 {
