@@ -1,34 +1,14 @@
 ﻿@page "/Contact"
 @using System.Net.Http;
 
-<PageTitle>
-    Contact Us
-</PageTitle>
-
 <div class="page-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <p>Please select your contact type:</p>
-                <Select TValue="string" SelectedValueChanged="@OnSelectedValueChanged">
-                    <SelectItem Value="@nameof(CustomerContact)">Customer</SelectItem>
-                    <SelectItem Value="@nameof(PartnerContact)">Partner</SelectItem>
-                </Select>
-                <hr />
-                <DynamicComponent Type="@selectedType" />
+                <CustomerContact />
             </div>
             <div class="col-md-4">
-                <ErrorBoundary>
-                    <ChildContent>
-                        <Chat />
-                    </ChildContent>
-                    <ErrorContent>
-                        <Alert Color="Color.Danger" Visible>
-                            <AlertMessage>Sorry!</AlertMessage>
-                            <AlertDescription>Something went wrong connecting to an agent.</AlertDescription>
-                        </Alert>
-                    </ErrorContent>
-                </ErrorBoundary>
+                <Chat />
                 <hr />
                 <MailingList />
                 <hr />
@@ -38,14 +18,7 @@
     </div>
 </div>
 
+@code
+{
 
-@code {
-   Type selectedType = Type.GetType("WiredBrainCoffee.UI.Components.CustomerContact");
-
-    Task OnSelectedValueChanged(string value )
-    {
-        selectedType = Type.GetType($"WiredBrainCoffee.UI.Components.{value}");
-
-        return Task.CompletedTask;
-    }
 } 
