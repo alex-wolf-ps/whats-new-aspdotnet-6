@@ -4,6 +4,6 @@ namespace WiredBrainCoffee.UI.Services
 {
     public interface IOrderService
     {
-        Task<OrderHistory> GetOrders();
+        Task<List<Order>> GetOrders();
     }
 }

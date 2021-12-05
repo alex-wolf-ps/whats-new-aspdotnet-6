@@ -12,9 +12,9 @@ namespace WiredBrainCoffee.UI.Services
             this.http = http;
         }
 
-        public async Task<OrderHistory> GetOrders()
+        public async Task<List<Order>> GetOrders()
         {
-            var orders = await http.GetFromJsonAsync<OrderHistory>("orders/history");
+            var orders = await http.GetFromJsonAsync<List<Order>>("orders");
             return orders;
         }
     }

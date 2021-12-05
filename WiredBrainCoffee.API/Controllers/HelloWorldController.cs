@@ -9,7 +9,7 @@ namespace WiredBrainCoffee.Api.Controllers
         [HttpGet()]
         public IActionResult GetGreeting()
         {
-            return Ok("Hello world!");
+            return Ok("Hello on save!");
         }
     }
 }

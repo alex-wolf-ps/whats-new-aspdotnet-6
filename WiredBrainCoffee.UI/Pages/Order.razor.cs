@@ -28,23 +28,19 @@ namespace WiredBrainCoffee.UI.Pages
         public decimal SalesTax { get; set; } = 0.06m;
         public string PromoCode { get; set; } = "";
         public bool IsValidPromoCode { get; set; } = true;
-        public bool FoodTabHidden { get; set; } = true;
-        public bool CoffeeTabHidden { get; set; } = false;
 
-        public void ShowCoffee()
-        {
-            CoffeeTabHidden = false;
-            FoodTabHidden = true;
-        }
+        [Parameter]
+        [SupplyParameterFromQuery]
+        public string ActiveTab { get; set; }
 
-        public void ShowFood()
+        private Task OnSelectedTabChanged(string name)
         {
-            CoffeeTabHidden = true;
-            FoodTabHidden = false;
+            ActiveTab = name;
+            return Task.CompletedTask;
         }
 
         async Task AddExtras(MenuItem item)
-        {
+        { 
             item.Extras = new Extras();
             var formModal = Modal.Show<CoffeeExtrasModal>("Enhance Your Coffee");
             var result = await formModal.Result;
@@ -94,7 +90,7 @@ namespace WiredBrainCoffee.UI.Pages
         protected async override Task OnInitializedAsync()
         {
             var menuItems = await MenuService.GetMenuItems();
-
+            
             FoodMenuItems = menuItems.Where(x => x.Category == "Food").ToList();
             CoffeeMenuItems = menuItems.Where(x => x.Category == "Coffee").ToList();
         }

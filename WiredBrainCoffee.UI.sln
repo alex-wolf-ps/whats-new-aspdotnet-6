@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WiredBrainCoffee.Models", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WiredBrainCoffee.API", "WiredBrainCoffee.API\WiredBrainCoffee.API.csproj", "{873394D7-23BD-413B-B891-2F71014FD462}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiredBrainCofffee.MinAPI", "WiredBrainCofffee.MinAPI\WiredBrainCofffee.MinAPI.csproj", "{A7934EFF-6D89-45B7-9205-C16EECC6FFC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WiredBrainCoffee.MinApi", "WiredBrainCoffee.MinApi\WiredBrainCoffee.MinApi.csproj", "{3AB446AC-09DF-466D-8B57-3B3A348A9774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{873394D7-23BD-413B-B891-2F71014FD462}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{873394D7-23BD-413B-B891-2F71014FD462}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{873394D7-23BD-413B-B891-2F71014FD462}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7934EFF-6D89-45B7-9205-C16EECC6FFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7934EFF-6D89-45B7-9205-C16EECC6FFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7934EFF-6D89-45B7-9205-C16EECC6FFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7934EFF-6D89-45B7-9205-C16EECC6FFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AB446AC-09DF-466D-8B57-3B3A348A9774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB446AC-09DF-466D-8B57-3B3A348A9774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB446AC-09DF-466D-8B57-3B3A348A9774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB446AC-09DF-466D-8B57-3B3A348A9774}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

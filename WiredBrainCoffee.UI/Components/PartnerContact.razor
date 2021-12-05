@@ -1,0 +1,60 @@
+﻿@inject NavigationManager NavManager
+@inject IContactService ContactService
+
+<h1>Partner Contact</h1>
+<p>We'd love to hear from you! We try our best to respond within 24 hours.</p>
+<hr />
+
+<EditForm Model="@Contact" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary />
+    <div class="form-group">
+        <label for="name">Partner Id: </label>
+        <InputText id="partnerId" class="form-control" @bind-Value="@Contact.PartnerId" placeholder="Enter first name"></InputText>
+        <ValidationMessage For="@(() => Contact.Name)" />
+    </div>
+    <div class="form-group">
+        <label for="name">Name: </label>
+        <InputText id="firstName" class="form-control" @bind-Value="@Contact.Name" placeholder="Enter first name"></InputText>
+        <ValidationMessage For="@(() => Contact.Name)" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email: </label>
+        <InputText id="email" class="form-control" @bind-Value="@Contact.Email" placeholder="Enter email"></InputText>
+        <ValidationMessage For="@(() => Contact.Email)" />
+    </div>
+    <div class="form-group">
+        <label for="email">Phone: </label>
+        <InputText id="phone" class="form-control" @bind-Value="@Contact.Phone" placeholder="Enter phone"></InputText>
+        <ValidationMessage For="@(() => Contact.Phone)" />
+    </div>
+    <div class="form-group">
+        <label for="message">Business Inquiry: </label>
+        <InputTextArea id="message" class="form-control" @bind-Value="@Contact.Message" placeholder="Enter message"></InputTextArea>
+        <ValidationMessage For="@(() => Contact.Message)" />
+    </div>
+
+    <div class="form-group">
+        <InputFile OnChange="@OnInputFileChange" multiple />
+    </div>
+
+    <button type="submit" class="btn btn-info">Submit</button>
+</EditForm>
+
+@code {
+    public Contact Contact = new Contact();
+
+    IReadOnlyList<IBrowserFile> selectedFiles;
+
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        selectedFiles = e.GetMultipleFiles(3);
+    }
+
+    private async void HandleValidSubmit()
+    {
+        Contact.SubmittedTime = DateTime.UtcNow;
+        await ContactService.PostContact(Contact, selectedFiles);
+        NavManager.NavigateTo("contact-confirmation");
+    }
+}

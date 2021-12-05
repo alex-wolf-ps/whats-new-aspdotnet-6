@@ -249,6 +249,11 @@ input[type="radio"] {
 .page-wrapper {
     min-height: 1000px;
 }
+
+#alertContainer {
+    font-size: 1.5em;
+}
+
 /*
 .card-body {
     display: flex;
