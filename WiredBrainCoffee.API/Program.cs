@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 
 builder.Services.AddHttpLogging(httpLogging =>
 {

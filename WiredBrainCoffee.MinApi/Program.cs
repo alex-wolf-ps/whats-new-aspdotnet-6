@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddSqlite<OrderDbContext>(connectionString);
+builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 
 builder.Services.AddCors(options =>
 {
