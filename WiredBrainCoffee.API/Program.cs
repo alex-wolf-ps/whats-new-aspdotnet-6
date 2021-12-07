@@ -11,13 +11,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Default", builder =>
-    {
-        builder.AllowAnyOrigin();
-    });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("Default", builder =>
+//    {
+//        builder.AllowAnyOrigin();
+//        builder.AllowAnyHeader();
+//        builder.AllowAnyMethod();
+//    });
+//});
+
 builder.Services.AddHttpLogging(httpLogging =>
 {
     httpLogging.LoggingFields = HttpLoggingFields.All;
@@ -41,8 +44,13 @@ app.Use(async (context, next) =>
 
 app.UseHttpLogging();
 
-//app.UseHttpsRedirection();
-app.UseCors();
+app.UseHttpsRedirection();
+// global cors policy
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
 app.UseAuthorization();
 app.MapControllers();
 
