@@ -26,11 +26,11 @@ builder.Services.AddBlazorise(options =>
   .AddFontAwesomeIcons();
 
 builder.Services.AddHttpClient<IMenuService, MenuService>(client =>
-    client.BaseAddress = new Uri("https://localhost:5500/"));
+    client.BaseAddress = new Uri("http://localhost:5500/"));
 builder.Services.AddHttpClient<IContactService, ContactService>(client =>
-    client.BaseAddress = new Uri("https://localhost:5500/"));
+    client.BaseAddress = new Uri("http://localhost:5500/"));
 builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
-    client.BaseAddress = new Uri("https://localhost:5500/"));
+    client.BaseAddress = new Uri("http://localhost:5500/"));
 
 var host = builder.Build();
 
