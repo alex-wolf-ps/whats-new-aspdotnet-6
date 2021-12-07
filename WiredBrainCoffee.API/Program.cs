@@ -11,6 +11,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Default", builder =>
+    {
+        builder.AllowAnyOrigin();
+    });
+});
 builder.Services.AddHttpLogging(httpLogging =>
 {
     httpLogging.LoggingFields = HttpLoggingFields.All;
@@ -35,10 +42,10 @@ app.Use(async (context, next) =>
 app.UseHttpLogging();
 
 //app.UseHttpsRedirection();
+app.UseCors();
 app.UseAuthorization();
 app.MapControllers();
 
 app.MapHub<ChatHub>("/chathub");
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();
