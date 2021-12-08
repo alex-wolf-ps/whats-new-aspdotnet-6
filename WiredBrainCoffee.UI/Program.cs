@@ -5,8 +5,12 @@ using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using WiredBrainCoffee.UI;
-using WiredBrainCoffee.UI.Components;
 using WiredBrainCoffee.UI.Services;
+using Microsoft.AspNetCore.Mvc;
+using WiredBrainCoffee.UI.Components;
+using Microsoft.Extensions.Logging;
+using System;
+
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -17,6 +21,8 @@ builder.RootComponents.RegisterForJavaScript<GlobalAlert>(identifier: "globalAle
 builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+//var hostname = Environment.GetEnvironmentVariable("CONTENT_HOSTNAME");
+//var hostname = "https://merry-woodpecker-mbr2-5500.nt.run/";
 var hostname = builder.Configuration["host"];
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(hostname) });
