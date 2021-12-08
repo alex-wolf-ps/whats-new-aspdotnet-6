@@ -1,6 +1,8 @@
 ﻿@inject NavigationManager NavigationManager
 @implements IAsyncDisposable
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
 @using Microsoft.AspNetCore.SignalR.Client
+@inject Microsoft.Extensions.Configuration.IConfiguration config
 
 <h2>Chat with us</h2>
 <hr />
@@ -27,10 +29,12 @@
     private string nameInput;
     private string messageInput;
 
+
     protected override async Task OnInitializedAsync()
     {
+        var url = config["host"];
         hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavigationManager.ToAbsoluteUri("https://localhost:7024/chathub"))
+            .WithUrl(NavigationManager.ToAbsoluteUri($"{url}/chathub"))
             .Build();
 
         hubConnection.On<string, string>("ReceiveMessage", (user, message) =>

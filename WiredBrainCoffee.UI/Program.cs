@@ -21,8 +21,6 @@ builder.RootComponents.RegisterForJavaScript<GlobalAlert>(identifier: "globalAle
 builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-//var hostname = Environment.GetEnvironmentVariable("CONTENT_HOSTNAME");
-//var hostname = "https://merry-woodpecker-mbr2-5500.nt.run/";
 var hostname = builder.Configuration["host"];
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(hostname) });
