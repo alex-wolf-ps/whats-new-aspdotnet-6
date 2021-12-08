@@ -19,11 +19,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.RootComponents.RegisterForJavaScript<GlobalAlert>(identifier: "globalAlert");
 
 builder.Services.AddAntiforgery(x => x.SuppressXFrameOptionsHeader = true);
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 var hostname = builder.Configuration["host"];
-
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(hostname) });
 
 builder.Services.AddBlazoredModal();
 builder.Services.AddBlazorise(options =>
